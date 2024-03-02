@@ -2,6 +2,11 @@
 #include <stdlib.h>
 
 int main(int argc, char **argv) {
+#ifdef DEBUG
+    char* argv_t[] = { argv[0],"42-22+2-6" };
+    argv = argv_t;
+    argc = sizeof(argv_t) / sizeof(char*);
+#endif
   if (argc != 2) {
     fprintf(stderr, "%s: invalid number of arguments\n", argv[0]);
     return 1;
